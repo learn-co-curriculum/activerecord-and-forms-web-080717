@@ -3,5 +3,19 @@
 <form action='/books' method='POST'>
   <input type='text' placeholder='Enter a Title...' name='book[title]' />
   <input type='text' placeholder='Enter a Snippet...' name='book[snippet]' />
+  <!-- <input type='text' placeholder='Enter the Author id...' name='book[author_id]' /> -->
+  <p>Select an exisiting author...</p>
+  <p>
+    <select name ='book[author_id]'>
+      <% @authors.each do |author| %>
+      <option value="<%= author.id %>"><%= author.full_name %></option>
+      <% end %>
+    </select>
+  </p>
+  <p>...Or create a new Author</p>
+  <p>
+    <input type='text' placeholder='Enter authors name...' name='book[author_attributes]' />
+  </p>
+
   <input type='submit' value="Create Book" />
 </form>
